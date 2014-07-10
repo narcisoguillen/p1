@@ -1,6 +1,7 @@
-var express = require('express');
-var path    = require('path');
-var app     = express();
+var express  = require('express');
+var path     = require('path');
+var app      = express();
+var passport = require('passport');
 
 var mainRoutes  = require('./routes')(express.Router());
 var adminRoutes = require('./routes/admin')(express.Router());
