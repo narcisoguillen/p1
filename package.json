@@ -1,0 +1,19 @@
+{
+  "name"        : "P1",
+  "version"     : "0.0.1",
+  "author"      : "Narciso Guillen <narciso.guillen@onelogin.com>",
+
+  "scripts": {
+    "start": "node app"
+  },
+
+  "engines": {
+    "node": "0.11.13"
+  },
+
+  "dependencies": {
+    "underscore"       : "1.6.x",
+    "express"          : "4.5.x"
+  }
+
+}
