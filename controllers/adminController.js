@@ -2,7 +2,7 @@ var AdminController = new require('./controller')();
 
 // GET /admin
 AdminController.prototype.index = function(req, res){
-  res.send('Hello Admin');
+  res.render('index');
 };
 
 module.exports = function(route){

@@ -2,7 +2,7 @@ var HomeController = new require('./controller')();
 
 // GET /
 HomeController.prototype.index = function(req, res){
-  res.send('Hello World');
+  res.render('index');
 };
 
 module.exports = function(route){
