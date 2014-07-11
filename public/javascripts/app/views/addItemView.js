@@ -7,7 +7,10 @@ P1.Views.addItemView = Backbone.View.extend({
     'keyup #entry'          : 'add'
   },
 
-  initialize: function(){ },
+  initialize: function(options){
+    this.list1 = options.list1;
+    this.list2 = options.list2;
+  },
 
   changeType: function(event){
     var $el = this.$(event.currentTarget);
@@ -30,9 +33,13 @@ P1.Views.addItemView = Backbone.View.extend({
         type:        this.type
       });
 
-      $el.val(''); // Clean up
+      if(this.type === 'type 1'){
+        this.list1.add(item);
+      }else{
+        this.list2.add(item);
+      }
 
-      console.log(item.toJSON());
+      $el.val(''); // Clean up
     }
 
   }
