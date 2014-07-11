@@ -2,20 +2,43 @@ extends layout
 
 block mainContent
   body
-    h1 P1
+  nav.navbar.navbar-inverse(role='navigation')
+      .container-fluid
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-9')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#') P1
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='#') Home
+              li
+                a(href='#') Register
+              li
+                a(href='#') Contact
 
   #container
 
     .add-item.navbar-form
       .form-group
-        input#entry.form-control(placeholder="add")
+        input#entry.form-control(placeholder="Title")
+        input#description.form-control(placeholder="description")
       button.btn.btn-primary.js-change-type.type1 Type 1
       button.btn.btn-default.js-change-type.type2 Type 2
 
     .lists.row
       #type1.col-md-6
         h2 List 1
-        ul
+        .jumbotron
+          h3.title
+          p.text
+        ul.list-group
       #type2.col-md-6
         h2 List 2
-        ul
+        .jumbotron
+          h3.title
+          p.text
+        ul.list-group

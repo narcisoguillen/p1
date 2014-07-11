@@ -4,7 +4,8 @@ P1.Views.addItemView = Backbone.View.extend({
 
   events: {
     'click .js-change-type' : 'changeType',
-    'keyup #entry'          : 'add'
+    'keyup #entry'          : 'add',
+    'keyup #description'    : 'add'
   },
 
   initialize: function(options){
@@ -21,17 +22,21 @@ P1.Views.addItemView = Backbone.View.extend({
   },
 
   add: function(event){
-    var $el = this.$(event.currentTarget);
-
-    if(!$el.val()){ return false; } // Needs to have some text
-
     if(event.keyCode === 13){
 
+      var $title       = this.$el.find('#entry');
+      var $description = this.$el.find('#description');
+
+      if(!$title.val()){ return false; }
+
+      var data = {
+        title       : $title.val(),
+        description : $description.val(),
+        type        : this.type
+      };
+
       // Create the new item
-      var item = new P1.Models.Item({
-        description: $el.val(),
-        type:        this.type
-      });
+      var item = new P1.Models.Item(data);
 
       if(this.type === 'type 1'){
         this.list1.add(item);
@@ -39,9 +44,10 @@ P1.Views.addItemView = Backbone.View.extend({
         this.list2.add(item);
       }
 
-      $el.val(''); // Clean up
+      $title.val('');       // Clean up
+      $description.val(''); // Clean up
+      $title.focus();
     }
-
   }
 
 });
