@@ -7,6 +7,7 @@ P1.Views.ListView = Backbone.View.extend({
   template: _.template(P1.Templates.Type1),
 
   initialize: function(){
+    this.collection.fetch();
     this.collection.on('add', this.add, this);
 
     this.$list     = this.$el.find('ul');
@@ -36,5 +37,6 @@ P1.Views.ListView = Backbone.View.extend({
     var description = data.description ? 'Description: ' + data.description : '';
     this.$selected.find('.text').text(description);
   }
+
 });
 
